@@ -1,0 +1,13 @@
+name: Trigger
+
+on:
+  push:
+  
+  
+jobs:
+  pass-secret-to-workflow:
+    uses: ./.github/workflows/deploy
+    with:
+      username: ${{ vars.username }}
+    secrets:
+      token: ${{ secrets.token }}
