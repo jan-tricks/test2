@@ -7,14 +7,14 @@ on:
 jobs:
   TriggerProd:
     if: github.ref == 'refs/heads/main'
-    uses: jan-tricks/workflows/.github/workflows/deploy.yml@latest
+    uses: jan-tricks/workflows/.github/workflows/deploy.yml@main
     with:
       env: "Production"
     secrets: inherit
     
   TriggerStage:
     if: github.ref == 'refs/heads/develop'
-    uses: jan-tricks/workflows/.github/workflows/deploy.yml@latest
+    uses: jan-tricks/workflows/.github/workflows/deploy.yml@main
     with:
       env: "Stage"
     secrets: inherit
