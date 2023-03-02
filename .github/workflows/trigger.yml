@@ -6,6 +6,7 @@ on:
   
 jobs:
   Trigger:
+    name: github.ref
     uses: jan-tricks/workflows/.github/workflows/deployment.yml@main
     with:
       env: github.ref
