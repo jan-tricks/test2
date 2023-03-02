@@ -6,6 +6,7 @@ on:
   
 jobs:
   pass-secret-to-workflow:
+    environment: Production
     uses: ./.github/workflows/deploy.yml
     with:
       username: ${{ vars.username }}
