@@ -8,9 +8,16 @@ on:
         default: 'john-doe'
         required: true
         type: string
+        
+    secrets:
+      token:
+        description: 'A token passed from the caller workflow'
+        required: true
 
 jobs:
   Build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Build ${{ inputs.username }}"
+      - run: echo "Input _${{ inputs.username }}_"
+      - run: echo "vars _${{ vars.username }}_"
+      - run: echo "secrets _${{ secrets.token }}_"
