@@ -5,16 +5,8 @@ on:
   
   
 jobs:
-  TriggerProd:
-    if: github.ref == 'refs/heads/main'
-    uses: jan-tricks/workflows/deployment.yml@main
+  Trigger:
+    uses: jan-tricks/workflows/.github/workflows/deployment.yml@main
     with:
-      env: "Production"
-    secrets: inherit
-    
-  TriggerStage:
-    if: github.ref == 'refs/heads/develop'
-    uses: jan-tricks/workflows/deployment.yml@main
-    with:
-      env: "Stage"
+      env: github.ref
     secrets: inherit
