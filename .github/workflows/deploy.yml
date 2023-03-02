@@ -3,20 +3,16 @@ name: Deployment
 on:
   workflow_call:
     inputs:
-      username:
-        description: 'A username passed from the caller workflow'
-        default: 'john-doe'
+      env:
+        description: 'Name of the environment'
+        default: 'Stage'
         required: true
         type: string
-        
-    secrets:
-      token:
-        description: 'A token passed from the caller workflow'
-        required: true
 
 jobs:
   Build:
     runs-on: ubuntu-latest
+    environment: ${{ inputs.env }}
     steps:
       - run: echo "Input _${{ inputs.username }}_"
       - run: echo "vars _${{ vars.username }}_"
