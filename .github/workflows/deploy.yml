@@ -8,8 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Build ${{ vars.ENV }}"
-  Deploy:
+
+  DeployProd:
     runs-on: ubuntu-latest
+    needs: [Build]
+    environment: Production
     steps:
       - run: echo "Deploy ${{ vars.ENV }}"
     
