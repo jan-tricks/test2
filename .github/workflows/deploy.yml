@@ -1,0 +1,15 @@
+name: Deployment
+
+on:
+  push:
+  
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Build ${{ vars.ENV }}"
+  Deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Deploy ${{ vars.ENV }}"
+    
