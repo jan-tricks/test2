@@ -5,8 +5,16 @@ on:
   
   
 jobs:
-  pass-secret-to-workflow:
+  TriggerProd:
+    if: github.ref == 'refs/head/main'
     uses: ./.github/workflows/deploy.yml
     with:
       env: "Production"
+    secrets: inherit
+    
+  TriggerStage:
+    if: github.ref == 'refs/head/develop'
+    uses: ./.github/workflows/deploy.yml
+    with:
+      env: "Stage"
     secrets: inherit
