@@ -6,7 +6,7 @@ on:
   
 jobs:
   pass-secret-to-workflow:
-    uses: ./.github/workflows/deploy
+    uses: ./.github/workflows/deploy.yml
     with:
       username: ${{ vars.username }}
     secrets:
